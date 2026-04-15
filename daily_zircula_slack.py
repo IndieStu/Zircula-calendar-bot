@@ -18,6 +18,9 @@ SLACK_WEBHOOK = os.getenv("SLACK_WEBHOOK")
 
 print("Webhook:", SLACK_WEBHOOK)
 
+if not SLACK_WEBHOOK:
+    raise Exception("Webhook ist NICHT gesetzt!")
+
 TIMEZONE = "Europe/Berlin"
 
 # =========================
