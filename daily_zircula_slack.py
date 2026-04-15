@@ -42,6 +42,11 @@ for url in ICS_URLS:
         response = requests.get(url, timeout=10)
         cal = Calendar(response.text)
 
+        start_of_day = tz.localize(datetime.combine(today, datetime.min.time()))
+end_of_day = tz.localize(datetime.combine(today, datetime.max.time()))
+
+if start_of_day <= event_time <= end_of_day:
+
         for event in cal.events:
             if not event.begin:
                 continue
