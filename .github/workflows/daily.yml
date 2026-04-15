@@ -2,7 +2,7 @@ name: Daily Calendar to Slack
 
 on:
   schedule:
-    - cron: "0 6 * * *"  # 08:00 Deutschland (UTC+2)
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -23,3 +23,5 @@ jobs:
 
       - name: Script ausführen
         run: python daily_zircula_slack.py
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
