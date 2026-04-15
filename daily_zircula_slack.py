@@ -13,7 +13,7 @@ ICS_URLS = [
     "https://easyverein.com/event/subscription/Zolli/20c60380-63bb-42ea-95cd-8b44358f3330/calendar.ics"
 ]
 
-SLACK_WEBHOOK = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK = "https://hooks.slack.com/services/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"
 
 TIMEZONE = "Europe/Berlin"
 
