@@ -37,24 +37,21 @@ events_today = []
 # EVENTS LADEN
 # =========================
 
+start_of_day = tz.localize(datetime.combine(today, datetime.min.time()))
+end_of_day = tz.localize(datetime.combine(today, datetime.max.time()))
+
 for url in ICS_URLS:
     try:
         response = requests.get(url, timeout=10)
         cal = Calendar(response.text)
-
-        start_of_day = tz.localize(datetime.combine(today, datetime.min.time()))
-end_of_day = tz.localize(datetime.combine(today, datetime.max.time()))
-
-if start_of_day <= event_time <= end_of_day:
 
         for event in cal.events:
             if not event.begin:
                 continue
 
             event_time = event.begin.to(TIMEZONE).datetime
-            event_date = event_time.date()
 
-            if event_date == today:
+            if start_of_day <= event_time <= end_of_day:
                 events_today.append({
                     "name": event.name,
                     "time": event_time.strftime("%H:%M"),
