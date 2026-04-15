@@ -2,6 +2,7 @@ import requests
 from ics import Calendar
 from datetime import datetime
 import pytz
+import os
 
 # =========================
 # 🔧 CONFIG (FERTIG)
