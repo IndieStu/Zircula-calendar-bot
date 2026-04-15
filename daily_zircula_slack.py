@@ -15,6 +15,8 @@ ICS_URLS = [
 
 SLACK_WEBHOOK = os.getenv("SLACK_WEBHOOK")
 
+print("Webhook:", SLACK_WEBHOOK)
+
 TIMEZONE = "Europe/Berlin"
 
 # =========================
